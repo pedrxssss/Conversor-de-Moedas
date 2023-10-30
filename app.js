@@ -21,43 +21,58 @@ let real = 0
 let moedaEstrageira = "";
 let moedaConvertida = "";
 
-/* Conversão da moeda */
-btnConverter.addEventListener("click", function () {
-  real = parseFloat(valorDigitado.value);
+//API de conversão
+let url = 'https://economia.awesomeapi.com.br/json/last/'
+let coins = 'BRL-USD,BRL-GBP,BRL-EUR,BTC-BRL'
 
-  for (let i = 0; i < moedaSelecionada.length; i++) {
-    if (moedaSelecionada[i].checked) {
-      moedaEstrageira = moedaSelecionada[i].value;
-      console.log(moedaEstrageira);
-    }
-  }
+//Conversão do valor de real para o escolhido usando a API
+btnConverter.addEventListener('click', function () {
+  fetch(url + coins)
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      let realDolar = parseFloat(data.BRLUSD['bid'])
+      let realEuro = parseFloat(data.BRLEUR['bid'])
+      let realLibra = parseFloat(data.BRLGBP['bid'])
+      let realBtc = parseFloat(data.BTCBRL['bid'])
 
-  //Estrutura Switch Case
-  switch (moedaEstrageira) {
-    case 'Dólar':
-      moedaConvertida = real / dolar
-      mensagemFormatada(moedaConvertida.toLocaleString('en-US', { style: 'currency', currency: 'USD' }))
-      break
+      real = parseFloat(valorDigitado.value);
 
-    case 'Euro':
-      moedaConvertida = real / euro
-      mensagemFormatada(moedaConvertida.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }))
-      break
+      for (let i = 0; i < moedaSelecionada.length; i++) {
+        if (moedaSelecionada[i].checked) {
+          moedaEstrageira = moedaSelecionada[i].value;
+          console.log(moedaEstrageira);
+        }
+      }
 
-    case 'Líbra':
-      moedaConvertida = real / libra
-      mensagemFormatada(moedaConvertida.toLocaleString('en-GB', { style: 'currency', currency: 'GBP' }))
-      break
+      //Estrutura Switch Case
+      switch (moedaEstrageira) {
+        case 'Dólar':
+          moedaConvertida = real * realDolar
+          mensagemFormatada(moedaConvertida.toLocaleString('en-US', { style: 'currency', currency: 'USD' }))
+          break
 
-    case 'Bitcoin':
-      moedaConvertida = real / bitcoin
-      mensagemFormatada(parseFloat(moedaConvertida).toFixed(5))
-      break
+        case 'Euro':
+          moedaConvertida = real * realEuro
+          mensagemFormatada(moedaConvertida.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }))
+          break
 
-    default:
-      instrucao.textContent = 'Escolha uma moeda.'
-  } isNaN(moedaConvertida) ? moedaConvertida = 0 : ''
-});
+        case 'Líbra':
+          moedaConvertida = real * realLibra
+          mensagemFormatada(moedaConvertida.toLocaleString('en-GB', { style: 'currency', currency: 'GBP' }))
+          break
+
+        case 'Bitcoin':
+          moedaConvertida = real / realBtc
+          mensagemFormatada(parseFloat(moedaConvertida).toFixed(5))
+          break
+
+        default:
+          instrucao.textContent = 'Escolha uma moeda.'
+      } isNaN(moedaConvertida) ? moedaConvertida = 0 : ''
+    })
+})
 
 btnLimpar.addEventListener('click', function () {
   valorDigitado.focus()
