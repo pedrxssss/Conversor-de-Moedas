@@ -10,13 +10,6 @@ let btnLimpar = document.querySelector(".btnLimpar");
 //Instrucao
 let instrucao = document.querySelector(".paragrafo");
 
-//Cotacoes ( Dia 30/10/2023 )
-let dolar = 5.04;
-let euro = 5.35;
-let libra = 6.13;
-let bitcoin = 172762.04;
-let real = 0
-
 //Selecao de moedas
 let moedaEstrageira = "";
 let moedaConvertida = "";
