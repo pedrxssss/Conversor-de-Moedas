@@ -1,0 +1,127 @@
+@import "./base/base";
+@import "./base/variaveis";
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 120px;
+
+  //Título
+  h1 {
+    font-size: calc($tamanho-da-fonte * 2.5);
+  }
+
+  //Input Conversão
+  .conversao {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    label {
+      font-size: calc($tamanho-da-fonte * 1.5);
+    }
+
+    input[type="number"] {
+      padding: 0.2rem 1rem;
+    }
+  }
+
+  //Input Moedas
+  .moedas {
+    display: flex;
+    gap: 1rem;
+
+    div {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      label {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  //Botoes
+  .botoes {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    button {
+      padding: 0.5rem 1rem;
+      color: $branco;
+      text-transform: uppercase;
+      border: 0;
+      border-radius: 2px;
+      filter: drop-shadow(1px 1px 1px $branco);
+    }
+
+    .btnConverter {
+      background: $amarelo;
+      cursor: not-allowed;
+
+      &:hover {
+        background: $hover-azul;
+      }
+    }
+
+    .btnLimpar {
+      background: $vermelho;
+      cursor: pointer;
+
+      &:hover {
+        background: $hover-vermelho;
+      }
+    }
+  }
+
+  //Paragrafo de instrucao
+  .paragrafo {
+    color: black;
+    background: $branco;
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+  }
+
+  //Imagens
+  .imgMoedas {
+    display: flex;
+    gap: 3rem;
+    margin-top: 1rem;
+
+    img {
+      width: 100px;
+    }
+  }
+}
+
+/* ANIMACAO */
+//Animacao de Piscar
+
+@keyframes piscar {
+  0% {
+    filter: drop-shadow(0 0 25px #ffc107);
+  }
+  100% {
+  }
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 0;
+    }
+    from {
+        opacity: 1;
+    }
+}
+
+.animar {
+    animation: piscar 1s infinite alternate;
+}
+
+.aparecer {
+    animation: aparecer 1.5s ease-in;
+}

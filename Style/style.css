@@ -1,0 +1,116 @@
+/* Cores */
+/* Hovers */
+/* Fonte */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  background: #222;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+/* Cores */
+/* Hovers */
+/* Fonte */
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 120px;
+}
+.conteudo h1 {
+  font-size: 2.5rem;
+}
+.conteudo .conversao {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.conteudo .conversao label {
+  font-size: 1.5rem;
+}
+.conteudo .conversao input[type=number] {
+  padding: 0.2rem 1rem;
+}
+.conteudo .moedas {
+  display: flex;
+  gap: 1rem;
+}
+.conteudo .moedas div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.conteudo .moedas div label {
+  font-size: 1.2rem;
+}
+.conteudo .botoes {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.conteudo .botoes button {
+  padding: 0.5rem 1rem;
+  color: #fff;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 2px;
+  filter: drop-shadow(1px 1px 1px #fff);
+}
+.conteudo .botoes .btnConverter {
+  background: #0008ff;
+  cursor: not-allowed;
+}
+.conteudo .botoes .btnConverter:hover {
+  background: #10135f;
+}
+.conteudo .botoes .btnLimpar {
+  background: #ff0000;
+  cursor: pointer;
+}
+.conteudo .botoes .btnLimpar:hover {
+  background: #601515;
+}
+.conteudo .paragrafo {
+  color: black;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+}
+.conteudo .imgMoedas {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+.conteudo .imgMoedas img {
+  width: 100px;
+}
+
+/* ANIMACAO */
+@keyframes piscar {
+  0% {
+    filter: drop-shadow(0 0 25px #ffc107);
+  }
+}
+@keyframes aparecer {
+  to {
+    opacity: 0;
+  }
+  from {
+    opacity: 1;
+  }
+}
+.animar {
+  animation: piscar 1s infinite alternate;
+}
+
+.aparecer {
+  animation: aparecer 1.5s ease-in;
+}/*# sourceMappingURL=style.css.map */
