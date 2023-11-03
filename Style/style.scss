@@ -1,16 +1,32 @@
 @import "./base/base";
 @import "./base/variaveis";
 
+.tela-principal {
+  background-image: url(../assets/background/image.png);
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
+
+  width: 100%;
+  height: 100vh;
+}
+
 .conteudo {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  margin-top: 120px;
+  
+  padding-top: 100px;
 
   //Título
   h1 {
     font-size: calc($tamanho-da-fonte * 2.5);
+
+    @media (max-width: 768px) {
+      line-break: auto;
+      text-align: center;
+    }
   }
 
   //Input Conversão
@@ -20,11 +36,19 @@
     gap: 1rem;
 
     label {
-      font-size: calc($tamanho-da-fonte * 1.5);
+      font-size: calc($tamanho-da-fonte * 1.8);
     }
 
     input[type="number"] {
-      padding: 0.2rem 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+
+      text-align: center;
+      padding: 0.2rem;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
     }
   }
 
@@ -35,66 +59,140 @@
 
     div {
       display: flex;
-      gap: 0.5rem;
       align-items: center;
+      gap: 0.5rem;
 
       label {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
+    }
+
+    @media (max-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
   }
 
   //Botoes
   .botoes {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-
-    button {
-      padding: 0.5rem 1rem;
-      color: $branco;
-      text-transform: uppercase;
-      border: 0;
-      border-radius: 2px;
-      filter: drop-shadow(1px 1px 1px $branco);
-    }
-
     .btnConverter {
-      background: $amarelo;
-      cursor: not-allowed;
+      background-color: $bg;
+      border: 2px solid $amarelo;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+
+      fill: #000;
+      height: 48px;
+      outline: 0;
+
+      color: $amarelo;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: Inter, sans-serif;
+      letter-spacing: -.8px;
+      line-height: 24px;
+      min-width: 140px;
+      padding: 0 17px;
+
+      text-align: center;
+      text-decoration: none;
+
+      transition: all .2s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
 
       &:hover {
-        background: $hover-azul;
+        border-color: $bg;
+        color: $amarelo;
+        transition: .2s;
+      }
+
+      @media (min-width: 768px) {
+        .btnConverter {
+          min-width: 170px;
+        }
       }
     }
 
     .btnLimpar {
-      background: $vermelho;
+      background-color: $bg;
+      border: 2px solid $vermelho;
+      box-sizing: border-box;
       cursor: pointer;
 
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+
+      fill: #000;
+      height: 48px;
+      outline: 0;
+
+      color: $vermelho;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: Inter, sans-serif;
+      letter-spacing: -.8px;
+      line-height: 24px;
+      min-width: 140px;
+      padding: 0 17px;
+
+      text-align: center;
+      text-decoration: none;
+
+      transition: all .3s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+
       &:hover {
-        background: $hover-vermelho;
+        border-color: $bg;
+        color: $vermelho;
+        transition: .2s;
+      }
+
+      @media (min-width: 768px) {
+        .btnLimpar {
+          min-width: 170px;
+        }
       }
     }
-  }
 
-  //Paragrafo de instrucao
-  .paragrafo {
-    color: black;
-    background: $branco;
-    padding: 0.5rem 1rem;
-    border-radius: 2px;
-  }
-
-  //Imagens
-  .imgMoedas {
-    display: flex;
-    gap: 3rem;
-    margin-top: 1rem;
-
-    img {
-      width: 100px;
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
     }
+
+  }
+}
+
+//Paragrafo de instrucao
+.paragrafo {
+  color: $branco;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+
+  @media (max-width: 768px) {
+    line-break: auto;
+    text-align: center;
+  }
+}
+
+//Imagens
+.imgMoedas {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1rem;
+
+  img {
+    width: 100px;
   }
 }
 
@@ -105,23 +203,24 @@
   0% {
     filter: drop-shadow(0 0 25px #ffc107);
   }
-  100% {
-  }
+
+  100% {}
 }
 
 @keyframes aparecer {
-    to {
-        opacity: 0;
-    }
-    from {
-        opacity: 1;
-    }
+  to {
+    opacity: 0;
+  }
+
+  from {
+    opacity: 1;
+  }
 }
 
 .animar {
-    animation: piscar 1s infinite alternate;
+  animation: piscar 1s infinite alternate;
 }
 
 .aparecer {
-    animation: aparecer 1.5s ease-in;
+  animation: aparecer 1.5s ease-in;
 }

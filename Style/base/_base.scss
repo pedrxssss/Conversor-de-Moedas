@@ -7,9 +7,10 @@
 }
 
 body {
-  width: 100vw;
-  background: $bg;
   color: $branco;
   font-family: $fonte;
   font-size: $tamanho-da-fonte;
+
+  width: 100vw;
+  height: 100vh;
 }
