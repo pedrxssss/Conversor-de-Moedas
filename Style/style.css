@@ -34,6 +34,12 @@ body {
   gap: 2rem;
   padding-top: 6.25rem;
 }
+@media (max-width: 1024px) {
+  .conteudo {
+    padding-top: 3.125;
+    gap: 1rem;
+  }
+}
 @media (max-width: 768px) {
   .conteudo {
     padding-top: 20px;
@@ -41,10 +47,11 @@ body {
   }
 }
 .conteudo h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 @media (max-width: 768px) {
   .conteudo h1 {
+    font-size: 1.5rem;
     line-break: auto;
     text-align: center;
   }
