@@ -13,40 +13,53 @@ body {
   font-size: 1rem;
   width: 100vw;
   height: 100vh;
+  background-image: url(../assets/background/image.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /* Cores */
 /* Hovers */
 /* Fonte */
 .tela-principal {
-  background-image: url(../assets/background/image.png);
-  background-repeat: none;
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
+  padding-top: 6rem;
+}
+@media (max-width: 1024px) {
+  .tela-principal {
+    padding-top: 3.125rem;
+    gap: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .tela-principal {
+    padding-top: 1.5rem;
+    gap: 0.5rem;
+  }
 }
 
 .conteudo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  padding-top: 6.25rem;
+  gap: 1.5rem;
+  width: 600px;
+  margin: 0 auto;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
-@media (max-width: 1024px) {
+@media (max-width: 990px) {
   .conteudo {
-    padding-top: 3.125;
-    gap: 1rem;
+    width: 400px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 425px) {
   .conteudo {
-    padding-top: 20px;
-    gap: 0.5rem;
+    width: 180px;
   }
 }
 .conteudo h1 {
+  color: #fff;
   font-size: 2rem;
 }
 @media (max-width: 768px) {
@@ -60,9 +73,10 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+  color: #fff;
 }
 .conteudo .conversao label {
-  font-size: 1.8rem;
+  font-size: 2.25rem;
 }
 .conteudo .conversao input[type=number] {
   font-size: 1.2rem;
@@ -75,59 +89,40 @@ body {
     flex-direction: column;
   }
 }
-.conteudo .moedas {
-  display: flex;
-  gap: 1rem;
+.conteudo .conversaoInternacional {
+  width: 250px;
+  margin: 0 auto;
+  color: #fff;
 }
-.conteudo .moedas div {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.conteudo .moedas div label {
-  font-size: 1.1rem;
-}
-@media (max-width: 768px) {
-  .conteudo .moedas {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+@media (max-width: 425px) {
+  .conteudo .conversaoInternacional {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
   }
 }
-.conteudo .botoes .btnConverter {
-  background-color: #222;
-  border: 2px solid #F7DE3A;
-  box-sizing: border-box;
+.conteudo .conversaoInternacional button:hover,
+.conteudo .conversaoInternacional button:focus {
+  background: #F7DE3A;
+}
+.conteudo .conversaoInternacional input[type=radio] {
+  display: none;
+}
+.conteudo .conversaoInternacional label {
+  font-size: 1.2rem;
   cursor: pointer;
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
-  fill: #000;
-  height: 48px;
-  outline: 0;
-  color: #F7DE3A;
-  font-size: 16px;
+}
+.conteudo .conversaoInternacional input[type=text] {
+  font-size: 1.2rem;
   font-weight: 600;
-  font-family: Inter, sans-serif;
-  letter-spacing: -0.8px;
-  line-height: 24px;
-  min-width: 140px;
-  padding: 0 17px;
   text-align: center;
-  text-decoration: none;
-  transition: all 0.2s;
-  -moz-user-select: none;
-       user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  padding: 0.2rem;
 }
-.conteudo .botoes .btnConverter:hover {
-  border-color: #222;
-  color: #F7DE3A;
-  transition: 0.2s;
-}
-@media (min-width: 768px) {
-  .conteudo .botoes .btnConverter .btnConverter {
-    min-width: 170px;
+@media (max-width: 425px) {
+  .conteudo .conversaoInternacional input[type=text] {
+    width: 165px;
   }
 }
 .conteudo .botoes .btnLimpar {
@@ -178,14 +173,6 @@ body {
 .paragrafo {
   color: #fff;
   font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 2px;
-}
-@media (max-width: 768px) {
-  .paragrafo {
-    line-break: auto;
-    text-align: center;
-  }
 }
 
 .imgMoedas {
@@ -195,6 +182,11 @@ body {
 }
 .imgMoedas img {
   width: 100px;
+}
+@media (max-width: 425px) {
+  .imgMoedas {
+    display: none;
+  }
 }
 
 /* ANIMACAO */

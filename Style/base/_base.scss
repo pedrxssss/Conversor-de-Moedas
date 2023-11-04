@@ -1,4 +1,4 @@
-@import './variaveis';
+@import "./variaveis";
 
 * {
   padding: 0;
@@ -13,4 +13,9 @@ body {
 
   width: 100vw;
   height: 100vh;
+
+  background-image: url(../assets/background/image.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
