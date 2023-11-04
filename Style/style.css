@@ -13,16 +13,18 @@ body {
   font-size: 1rem;
   width: 100vw;
   height: 100vh;
-  background-image: url(../assets/background/image.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 /* Cores */
 /* Hovers */
 /* Fonte */
 .tela-principal {
+  background-image: url(../assets/background/image.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
   padding-top: 6rem;
 }
 @media (max-width: 1024px) {
