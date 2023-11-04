@@ -33,7 +33,7 @@ body {
 }
 @media (max-width: 768px) {
   .tela-principal {
-    padding-top: 1.5rem;
+    padding-top: 2rem;
     gap: 0.5rem;
   }
 }
@@ -86,6 +86,7 @@ body {
 }
 @media (max-width: 768px) {
   .conteudo .conversao {
+    width: 165px;
     flex-direction: column;
   }
 }
@@ -177,15 +178,20 @@ body {
 
 .imgMoedas {
   display: flex;
-  gap: 3rem;
-  margin-top: 1rem;
+  gap: 2rem;
+  width: 50%;
 }
 .imgMoedas img {
   width: 100px;
 }
+@media (max-width: 768px) {
+  .imgMoedas img {
+    width: 80px;
+  }
+}
 @media (max-width: 425px) {
-  .imgMoedas {
-    display: none;
+  .imgMoedas img {
+    width: 50px;
   }
 }
 
