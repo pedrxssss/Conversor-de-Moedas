@@ -43,18 +43,18 @@
           />
         </div>
 
-        <!-- Moedas -->
-        <div class="input-group mb-3 conversaoInternacional">
+        <!-- Moedas / Conversão Internacional -->
+        <div class="input-group conversaoInternacional">
           <button
-            class="btn btn-outline-secondary dropdown-toggle border-light text-white changeButtonName"
+            class="btn dropdown-toggle border-light text-white changeButtonName"
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             Moedas
           </button>
+
           <ul class="dropdown-menu text-center">
-            
             <!-- Dólar -->
             <li>
               <input
@@ -120,7 +120,7 @@
 
           <!-- Valor recebido -->
           <input
-            type="text"
+            type="number"
             min="0"
             max="999999999.99"
             step="0.1"
