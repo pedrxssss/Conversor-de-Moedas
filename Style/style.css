@@ -91,6 +91,7 @@ body {
 }
 .conteudo .conversaoInternacional {
   width: 65%;
+  margin: 0 auto;
   /* Conversão Internacional */
 }
 .conteudo .conversaoInternacional ul {
