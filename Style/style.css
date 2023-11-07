@@ -116,7 +116,7 @@ body {
 .conteudo .conversaoInternacional button {
   text-align: center;
 }
-.conteudo .conversaoInternacional input[type=number] {
+.conteudo .conversaoInternacional input[type=text] {
   color: #222;
   font-weight: 500;
   padding: 0;
