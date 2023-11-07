@@ -131,7 +131,7 @@ body {
   .conteudo .conversaoInternacional button {
     border-radius: 0;
   }
-  .conteudo .conversaoInternacional input[type=number] {
+  .conteudo .conversaoInternacional input[type=text] {
     width: 100%;
     border-radius: 0;
   }
