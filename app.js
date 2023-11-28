@@ -1,11 +1,11 @@
 /* Javascript Conversor de moedas */
 //Moedas
-let valorDigitado = document.querySelector(".input");
-let valorConvertido = document.querySelector(".input-receive");
+let valorDigitado = document.querySelector(".valor__real");
+let valorConvertido = document.querySelector(".input__receive");
 let moedaSelecionada = document.getElementsByName("moedaEstrangeira");
 
 //Botoes
-let btnLimpar = document.querySelector(".btnLimpar");
+let btnLimpar = document.querySelector(".btn__limpar");
 
 //Instrucao
 let instrucao = document.querySelector(".paragrafo");
@@ -17,7 +17,7 @@ let moedaConvertida = "";
 
 //API de conversão
 let url = "https://economia.awesomeapi.com.br/json/last/";
-let coins = "BRL-USD,BRL-GBP,BRL-EUR,BTC-BRL";
+let coins = "BRL-USD,BRL-GBP,BRL-EUR,BTC-BRL,BRL-JPY";
 
 //Conversão do valor de real para o escolhido usando a API
 btnLimpar.addEventListener("click", function () {
@@ -40,6 +40,7 @@ function digiting() {
       let realEuro = parseFloat(data.BRLEUR["bid"]);
       let realLibra = parseFloat(data.BRLGBP["bid"]);
       let realBtc = parseFloat(data.BTCBRL["bid"]);
+      let realIene = parseFloat(data.BRLJPY["bid"]);
 
       real = parseFloat(valorDigitado.value);
 
@@ -78,6 +79,16 @@ function digiting() {
             moedaConvertida.toLocaleString("en-GB", {
               style: "currency",
               currency: "GBP",
+            })
+          );
+          break;
+
+        case "Iene":
+          moedaConvertida = real * realIene;
+          mensagemFormatada(
+            moedaConvertida.toLocaleString("ja-JP", {
+              style: "currency",
+              currency: "JPY",
             })
           );
           break;

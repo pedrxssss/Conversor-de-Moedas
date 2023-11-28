@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Cores */
 /* Hovers */
 /* Fonte */
@@ -23,185 +22,52 @@ body {
 /* Cores */
 /* Hovers */
 /* Fonte */
-.tela-principal {
-  width: 100%;
-  height: 100%;
+.main__screen {
+  width: 450px;
+}
+@media (max-width: 450px) {
+  .main__screen {
+    width: 250px;
+  }
 }
 
-.conteudo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1rem;
-  width: 500px;
-  margin: 85px auto;
+section {
+  border: 1px solid gray;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
 }
-@media (max-width: 768px) {
-  .conteudo {
-    width: 400px;
-    margin-top: 75px;
-  }
-}
-@media (max-width: 425px) {
-  .conteudo {
-    width: 200px;
-    margin-top: 50px;
-  }
-}
-.conteudo h1 {
-  color: #fff;
-  font-size: 2rem;
-  margin: 0;
-}
-@media (max-width: 425px) {
-  .conteudo h1 {
-    width: 80%;
-  }
-}
-.conteudo .conversao {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.conteudo .conversao label {
-  font-size: 1.6rem;
-}
-.conteudo .conversao input[type=number] {
-  color: #222;
-  background: #fff;
-  border: 0;
-  border-radius: 0.3rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: -1px;
-  text-align: center;
-}
-@media (max-width: 425px) {
-  .conteudo .conversao {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .conteudo .conversao input[type=number] {
-    width: 85%;
-  }
-}
-.conteudo .conversaoInternacional {
-  width: 65%;
-  margin: 0 auto;
-  /* Conversão Internacional */
-}
-.conteudo .conversaoInternacional ul {
+
+.input__receive {
+  width: 150px;
   padding: 0;
-  background: #222;
 }
-.conteudo .conversaoInternacional li {
-  padding: 0.2rem 0;
-}
-.conteudo .conversaoInternacional input[type=radio] {
+
+.list__items input {
   display: none;
 }
-.conteudo .conversaoInternacional label {
+.list__items label {
   cursor: pointer;
-  width: 100%;
 }
-.conteudo .conversaoInternacional label:hover {
-  width: 60%;
-  background: #000;
-  border-radius: 0.2rem;
-  transition: 0.4s;
-}
-.conteudo .conversaoInternacional button {
-  text-align: center;
-}
-.conteudo .conversaoInternacional input[type=text] {
-  color: #222;
-  font-weight: 500;
-  padding: 0;
-}
-@media (max-width: 425px) {
-  .conteudo .conversaoInternacional {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .conteudo .conversaoInternacional button {
-    border-radius: 0;
-  }
-  .conteudo .conversaoInternacional input[type=text] {
-    width: 100%;
-    border-radius: 0;
-  }
-}
-.conteudo .botoes .btnLimpar {
+.list__items label:hover {
   background-color: #222;
-  border: 2px solid #f92828;
-  box-sizing: border-box;
-  cursor: pointer;
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
-  fill: #000;
-  height: 48px;
-  outline: 0;
-  color: #f92828;
-  font-size: 16px;
-  font-weight: 600;
-  font-family: Inter, sans-serif;
-  letter-spacing: -0.8px;
-  line-height: 24px;
-  min-width: 140px;
-  padding: 0 17px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.3s;
-  -moz-user-select: none;
-       user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-.conteudo .botoes .btnLimpar:hover {
-  border-color: #222;
-  color: #f92828;
+  border-radius: 5px;
+  padding: 5px;
   transition: 0.2s;
 }
-@media (min-width: 768px) {
-  .conteudo .botoes .btnLimpar .btnLimpar {
-    min-width: 170px;
-  }
-}
-@media (max-width: 768px) {
-  .conteudo .botoes {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-}
 
-.paragrafo {
-  color: #fff;
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-.imgMoedas {
+.div__imgCoins {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
-  margin: 0;
 }
-.imgMoedas img {
-  width: 65px;
+.div__imgCoins img {
+  width: 70px;
 }
 
-/* ANIMACAO */
 @keyframes piscar {
   0% {
-    filter: drop-shadow(0 0 25px #ffc107);
+    filter: drop-shadow(0 0 25px #F7DE3A);
   }
 }
 @keyframes aparecer {
@@ -217,5 +83,5 @@ body {
 }
 
 .aparecer {
-  animation: aparecer 1.5s ease-in;
+  animation: aparecer 1s infinite alternate;
 }/*# sourceMappingURL=style.css.map */
