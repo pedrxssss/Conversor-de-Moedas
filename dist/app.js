@@ -1,15 +1,18 @@
 /* Javascript Conversor de moedas */
 //Moedas
-let valorDigitado = document.querySelector(".valor__real");
-let valorConvertido = document.querySelector(".input__receive");
+let valorDigitado = document.querySelector(".input");
+let valorConvertido = document.querySelector(".input-valor-convertido");
 let moedaSelecionada = document.getElementsByName("moedaEstrangeira");
 
+let lista = document.querySelector('.lista')
+
 //Botoes
-let btnLimpar = document.querySelector(".btn__limpar");
+let btnLimpar = document.querySelector(".btn-limpar");
+let btnMoedas = document.querySelector('.btn-moedas')
+let body = document.querySelector('body')
 
 //Instrucao
-let instrucao = document.querySelector(".paragrafo");
-let btnChangeName = document.querySelector(".changeButtonName");
+let instrucao = document.querySelector(".instrucoes");
 
 //Selecao de moedas
 let moedaEstrageira = "";
@@ -28,6 +31,7 @@ btnLimpar.addEventListener("click", function () {
   moedaSelecionada[1].checked = false;
   moedaSelecionada[2].checked = false;
   moedaSelecionada[3].checked = false;
+  moedaSelecionada[4].checked = false;
 });
 
 function digiting() {
@@ -105,19 +109,24 @@ function digiting() {
     });
 }
 
+/* Trocar nome */
 function changeName() {
   for (let i = 0; i < moedaSelecionada.length; i++) {
     if (moedaSelecionada[i].checked) {
-      btnChangeName.textContent = moedaSelecionada[i].value;
+      btnMoedas.textContent = moedaSelecionada[i].value;
     }
   }
+}
+
+/* Dropdown */
+function dropdown() {
+  lista.classList.toggle('hidden')
 }
 
 /* Mensagem de instrucao na tela */
 function mensagemFormatada(moedaConvertida) {
   valorConvertido.value = `${moedaConvertida}`;
-  valorConvertido.style.color = "black";
-  instrucao.textContent = "Valor convertido";
+  instrucao.textContent = `Valor convertido!`;
 
   if (valorDigitado.value == "") {
     valorConvertido.value = "";

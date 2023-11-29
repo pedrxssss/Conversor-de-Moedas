@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Conversor de Moedas</title>
+  </head>
+
+  <body
+    style="
+      background-image: url(../assets/background/bolsadevalores.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    "
+    class="text-branco"
+  >
+    <!-- Tela -->
+    <main class="tela-principal mt-24 m-auto text-center">
+      <!-- Conteudo -->
+      <section class="conteudo p-8 flex flex-col gap-4">
+        <!-- Titulo -->
+        <h1 class="titulo uppercase font-medium text-2xl">
+          Conversor de Moedas
+        </h1>
+
+        <!-- Valor a ser convertido -->
+        <div class="div-valor-real flex justify-center items-center gap-4">
+          <label for="valorReal" class="text-amarelo text-2xl font-medium"
+            >R$</label
+          >
+          <input
+            type="number"
+            name="valorReal"
+            id="valorReal"
+            class="input border-2 focus:outline-none focus:ring-2 focus:ring-inputRealRing focus:border-inputReal hover:border-inputReal hover:ring-2 hover:ring-inputRealRing duration-200 rounded text-center text-black font-medium"
+            min="0.0"
+            max="999999999.99"
+            step="0.1"
+            value=""
+            tabindex="1"
+            onkeyup="digiting()"
+            autofocus
+            required
+          />
+        </div>
+
+        <!-- Internacional conversion -->
+        <div
+          class="div-valor-internacional flex items-center justify-center gap-4"
+        >
+          <!-- Dropdown Button -->
+          <div class="div-valor-internacional-itens relative">
+            <button
+              class="btn-moedas uppercase font-medium text-dropdownBtn bg-dropdownBtnBg p-1 rounded-sm cursor-pointer hover:bg-dropdownBtn hover:text-dropdownBtnBg duration-200 block"
+              type="button"
+              onclick="dropdown()"
+            >
+              Moedas
+            </button>
+
+            <!-- All dropdown content -->
+            <ul
+              class="lista bg-branco text-inputReal p-1 rounded mt-1 w-32 shadow-xl absolute hidden"
+            >
+              <!-- Dolar -->
+              <li class="lista-item">
+                <input
+                  class="input-moedas hidden"
+                  type="radio"
+                  value="Dólar"
+                  id="dolar"
+                  checked=""
+                  tabindex="2"
+                  name="moedaEstrangeira"
+                  onclick="changeName(), dropdown()"
+                />
+                <label
+                  class="hover:text-branco hover:bg-inputReal p-1 rounded duration-200 cursor-pointer"
+                  for="dolar"
+                  >$ Dólar
+                </label>
+              </li>
+
+              <!-- Euro -->
+              <li class="lista-item">
+                <input
+                  class="input-moedas hidden"
+                  type="radio"
+                  value="Euro"
+                  id="euro"
+                  checked=""
+                  tabindex="3"
+                  name="moedaEstrangeira"
+                  onclick="changeName(), dropdown()"
+                />
+                <label
+                  class="hover:text-branco hover:bg-inputReal p-1 rounded duration-200 cursor-pointer"
+                  for="euro"
+                  >€ Euro
+                </label>
+              </li>
+
+              <!-- Líbra -->
+              <li class="lista-item">
+                <input
+                  class="input-moedas hidden"
+                  type="radio"
+                  value="Líbra"
+                  id="libra"
+                  checked=""
+                  tabindex="4"
+                  name="moedaEstrangeira"
+                  onclick="changeName(), dropdown()"
+                />
+                <label
+                  class="hover:text-branco hover:bg-inputReal p-1 rounded duration-200 cursor-pointer"
+                  for="libra"
+                  >£ Líbra
+                </label>
+              </li>
+
+              <!-- Iene -->
+              <li class="lista-item">
+                <input
+                  class="input-moedas hidden"
+                  type="radio"
+                  value="Iene"
+                  id="iene"
+                  checked=""
+                  tabindex="5"
+                  name="moedaEstrangeira"
+                  onclick="changeName(), dropdown()"
+                />
+                <label
+                  class="hover:text-branco hover:bg-inputReal p-1 rounded duration-200 cursor-pointer"
+                  for="iene"
+                  >¥ Iene
+                </label>
+              </li>
+
+              <!-- Bitcoin -->
+              <li class="lista-item">
+                <input
+                  class="input-moedas hidden"
+                  type="radio"
+                  value="Bitcoin"
+                  id="bitcoin"
+                  checked=""
+                  tabindex="6"
+                  name="moedaEstrangeira"
+                  onclick="changeName(), dropdown()"
+                />
+                <label
+                  class="hover:text-branco hover:bg-inputReal p-1 rounded duration-200 cursor-pointer"
+                  for="bitcoin"
+                  >(₿) BitCoins
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Receive value -->
+          <input
+            type="text"
+            min="0"
+            max="999999999.99"
+            step="0.1"
+            class="input-valor-convertido border-2 focus:outline-none focus:ring-2 focus:ring-inputRealRing focus:border-inputReal hover:border-inputReal hover:ring-2 hover:ring-inputRealRing duration-200 rounded text-center text-black font-medium w-40"
+            aria-label="Text input with dropdown button"
+          />
+        </div>
+
+        <!-- Botoes -->
+        <div class="div-botao-limpar">
+          <button
+            type="button"
+            class="btn-limpar uppercase bg-amarelo text-branco font-medium px-1 rounded hover:bg-black hover:text-amarelo duration-200"
+            type="reset"
+            tabindex="7"
+          >
+            Limpar
+          </button>
+        </div>
+
+        <!-- Instrucoes -->
+        <div class="div-instrucoes">
+          <p class="instrucoes uppercase w-full line font-medium">
+            Converta o valor!
+          </p>
+        </div>
+
+        <!-- Imagens -->
+        <div
+          class="div-imagens flex items-center justify-center gap-4 w-28 m-auto"
+        >
+          <img
+            src="../assets/moedas/real.png"
+            alt="Imagem da moeda no valor Real"
+            class="imagem-um"
+          />
+          <img
+            src="../assets/moedas/dolar.png"
+            alt="Imagem da moeda no valor Dólar"
+            class="imagem-dois"
+          />
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
