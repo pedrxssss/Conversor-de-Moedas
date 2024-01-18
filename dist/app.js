@@ -126,10 +126,8 @@ function dropdown() {
 /* Mensagem de instrucao na tela */
 function mensagemFormatada(moedaConvertida) {
   valorConvertido.value = `${moedaConvertida}`;
-  instrucao.textContent = `Valor convertido!`;
 
   if (valorDigitado.value == "") {
     valorConvertido.value = "";
-    instrucao.textContent = "Converta o valor";
   }
 }
