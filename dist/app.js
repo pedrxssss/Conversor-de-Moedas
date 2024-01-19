@@ -1,26 +1,22 @@
 /* Javascript Conversor de moedas */
+//import
+import axios from "axios";
+
 //Moedas
 let valorDigitado = document.querySelector(".input");
-let valorConvertido = document.querySelector(".input-valor-convertido");
 let moedaSelecionada = document.getElementsByName("moedaEstrangeira");
-
-let lista = document.querySelector('.lista')
+let valorConvertido = document.querySelector(".input-valor-convertido");
 
 //Botoes
-let btnLimpar = document.querySelector(".btn-limpar");
-let btnMoedas = document.querySelector('.btn-moedas')
-let body = document.querySelector('body')
+const btnMoedas = document.querySelector(".btn-moedas");
+const btnLimpar = document.querySelector(".btn-limpar");
 
-//Instrucao
-let instrucao = document.querySelector(".instrucoes");
+//Dropdown Lista
+let lista = document.querySelector(".lista");
 
 //Selecao de moedas
-let moedaEstrageira = "";
+let moedaEstrageira = "Dólar";
 let moedaConvertida = "";
-
-//API de conversão
-let url = "https://economia.awesomeapi.com.br/json/last/";
-let coins = "BRL-USD,BRL-GBP,BRL-EUR,BTC-BRL,BRL-JPY";
 
 //Conversão do valor de real para o escolhido usando a API
 btnLimpar.addEventListener("click", function () {
@@ -34,80 +30,103 @@ btnLimpar.addEventListener("click", function () {
   moedaSelecionada[4].checked = false;
 });
 
-function digiting() {
-  fetch(url + coins)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      let realDolar = parseFloat(data.BRLUSD["bid"]);
-      let realEuro = parseFloat(data.BRLEUR["bid"]);
-      let realLibra = parseFloat(data.BRLGBP["bid"]);
-      let realBtc = parseFloat(data.BTCBRL["bid"]);
-      let realIene = parseFloat(data.BRLJPY["bid"]);
+//API
+valorDigitado.addEventListener("keyup", digiting);
+async function digiting() {
+  //API de conversão
+  const url = import.meta.env.VITE_URL;
+  const coins = import.meta.env.VITE_COINS;
 
-      real = parseFloat(valorDigitado.value);
+  try {
+    const urlCoins = await axios.get(url + coins);
+    const moedas = urlCoins.data;
 
-      for (let i = 0; i < moedaSelecionada.length; i++) {
-        if (moedaSelecionada[i].checked) {
-          moedaEstrageira = moedaSelecionada[i].value;
-          console.log(moedaEstrageira);
-        }
+    let realDolar = parseFloat(moedas.BRLUSD["bid"]);
+    let realEuro = parseFloat(moedas.BRLEUR["bid"]);
+    let realLibra = parseFloat(moedas.BRLGBP["bid"]);
+    let realBtc = parseFloat(moedas.BTCBRL["bid"]);
+    let realIene = parseFloat(moedas.BRLJPY["bid"]);
+    let realYuan = parseFloat(moedas.BRLCNY["bid"]);
+
+    let real = parseFloat(valorDigitado.value);
+
+    for (let i = 0; i < moedaSelecionada.length; i++) {
+      if (moedaSelecionada[i].checked) {
+        moedaEstrageira = moedaSelecionada[i].value;
+        console.log(moedaEstrageira);
       }
+    }
 
-      //Estrutura Switch Case
-      switch (moedaEstrageira) {
-        case "Dólar":
-          moedaConvertida = real * realDolar;
-          mensagemFormatada(
-            moedaConvertida.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD",
-            })
-          );
-          break;
+    //Estrutura Switch Case
+    switch (moedaEstrageira) {
+      case "Dólar":
+        moedaConvertida = real * realDolar;
+        mensagemFormatada(
+          moedaConvertida.toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+          })
+        );
+        break;
 
-        case "Euro":
-          moedaConvertida = real * realEuro;
-          mensagemFormatada(
-            moedaConvertida.toLocaleString("de-DE", {
-              style: "currency",
-              currency: "EUR",
-            })
-          );
-          break;
+      case "Euro":
+        moedaConvertida = real * realEuro;
+        mensagemFormatada(
+          moedaConvertida.toLocaleString("de-DE", {
+            style: "currency",
+            currency: "EUR",
+          })
+        );
+        break;
 
-        case "Líbra":
-          moedaConvertida = real * realLibra;
-          mensagemFormatada(
-            moedaConvertida.toLocaleString("en-GB", {
-              style: "currency",
-              currency: "GBP",
-            })
-          );
-          break;
+      case "Líbra":
+        moedaConvertida = real * realLibra;
+        mensagemFormatada(
+          moedaConvertida.toLocaleString("en-GB", {
+            style: "currency",
+            currency: "GBP",
+          })
+        );
+        break;
 
-        case "Iene":
-          moedaConvertida = real * realIene;
-          mensagemFormatada(
-            moedaConvertida.toLocaleString("ja-JP", {
-              style: "currency",
-              currency: "JPY",
-            })
-          );
-          break;
+      case "Iene":
+        moedaConvertida = real * realIene;
+        mensagemFormatada(
+          moedaConvertida.toLocaleString("ja-JP", {
+            style: "currency",
+            currency: "JPY",
+          })
+        );
+        break;
 
-        case "Bitcoin":
-          moedaConvertida = real / realBtc;
-          mensagemFormatada(parseFloat(moedaConvertida).toFixed(5));
-          break;
+      case "Yuan":
+        moedaConvertida = real * realYuan;
+        mensagemFormatada(
+          moedaConvertida.toLocaleString("zh-CN", {
+            style: "currency",
+            currency: "CNY",
+          })
+        );
+        break;
 
-        default:
-          instrucao.textContent = "Escolha uma moeda.";
-      }
-      isNaN(moedaConvertida) ? (moedaConvertida = 0) : "";
-    });
+      case "Bitcoin":
+        moedaConvertida = real / realBtc;
+        mensagemFormatada(parseFloat(moedaConvertida).toFixed(5));
+        break;
+    }
+    isNaN(moedaConvertida) ? (moedaConvertida = 0) : "";
+  } catch (erro) {
+    console.log(erro);
+  }
 }
+
+//event listeners
+btnMoedas.addEventListener("click", dropdown);
+moedaSelecionada.forEach((element) => {
+  element.addEventListener("click", () => {
+    changeName(), dropdown();
+  });
+});
 
 /* Trocar nome */
 function changeName() {
@@ -120,7 +139,7 @@ function changeName() {
 
 /* Dropdown */
 function dropdown() {
-  lista.classList.toggle('hidden')
+  lista.classList.toggle("hidden");
 }
 
 /* Mensagem de instrucao na tela */
