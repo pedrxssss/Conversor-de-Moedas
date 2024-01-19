@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["index.html", "./dist/**/*.js"],
+  content: ["index.html", "app.js"],
   theme: {
     extend: {
       colors: {
@@ -43,7 +43,7 @@ module.exports = {
         },
       },
       screens: {
-        'mediumScreen': "1024px",
+        mediumScreen: "1024px",
       },
       animation: {
         piscar: "piscar 1s infinite alternate",

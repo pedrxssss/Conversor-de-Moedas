@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="dist/style.css" />
-    <link rel="stylesheet" href="dist/style2.css" />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/style2.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -43,7 +43,6 @@
             step="0.1"
             value=""
             tabindex="1"
-            onkeyup="digiting()"
             autofocus
             required
           />
@@ -58,7 +57,6 @@
             <button
               class="btn-moedas uppercase text-verde text-md font-medium rounded-sm cursor-pointer duration-200"
               type="button"
-              onclick="dropdown()"
             >
               Moedas
             </button>
@@ -74,10 +72,9 @@
                   type="radio"
                   value="Dólar"
                   id="dolar"
-                  checked=""
                   tabindex="2"
+                  checked=""
                   name="moedaEstrangeira"
-                  onclick="changeName(), dropdown()"
                 />
                 <label
                   class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
@@ -93,10 +90,8 @@
                   type="radio"
                   value="Euro"
                   id="euro"
-                  checked=""
                   tabindex="3"
                   name="moedaEstrangeira"
-                  onclick="changeName(), dropdown()"
                 />
                 <label
                   class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
@@ -112,10 +107,8 @@
                   type="radio"
                   value="Líbra"
                   id="libra"
-                  checked=""
                   tabindex="4"
                   name="moedaEstrangeira"
-                  onclick="changeName(), dropdown()"
                 />
                 <label
                   class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
@@ -131,15 +124,30 @@
                   type="radio"
                   value="Iene"
                   id="iene"
-                  checked=""
                   tabindex="5"
                   name="moedaEstrangeira"
-                  onclick="changeName(), dropdown()"
                 />
                 <label
                   class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
                   for="iene"
                   >¥ Iene
+                </label>
+              </li>
+
+              <!-- Yuan -->
+              <li class="lista-item">
+                <input
+                  class="input-moedas hidden"
+                  type="radio"
+                  value="Yuan"
+                  id="yuan"
+                  tabindex="6"
+                  name="moedaEstrangeira"
+                />
+                <label
+                  class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                  for="yuan"
+                  >¥ Yuan
                 </label>
               </li>
 
@@ -150,10 +158,8 @@
                   type="radio"
                   value="Bitcoin"
                   id="bitcoin"
-                  checked=""
-                  tabindex="6"
+                  tabindex="7"
                   name="moedaEstrangeira"
-                  onclick="changeName(), dropdown()"
                 />
                 <label
                   class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
@@ -190,12 +196,12 @@
         <!-- Imagens -->
         <div class="div-imagens flex items-center justify-center gap-4 -z-10">
           <img
-            src="../assets/moedas/real.png"
+            src="images/moedas/real.png"
             alt="Imagem da moeda no valor Real"
             class="imagem-um w-16 animate-piscar rounded-full overflow-hidden"
           />
           <img
-            src="../assets/moedas/dolar.png"
+            src="images/moedas/dolar.png"
             alt="Imagem da moeda no valor Dólar"
             class="imagem-dois w-16 animate-piscar rounded-full overflow-hidden"
           />
@@ -203,6 +209,6 @@
       </section>
     </main>
 
-    <script src="dist/app.js"></script>
+    <script src="app.js" type="module"></script>
   </body>
 </html>
