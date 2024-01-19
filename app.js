@@ -15,7 +15,7 @@ const btnLimpar = document.querySelector(".btn-limpar");
 let lista = document.querySelector(".lista");
 
 //Selecao de moedas
-let moedaEstrageira = "Dólar";
+let moedaEstrageira = "";
 let moedaConvertida = "";
 
 //Conversão do valor de real para o escolhido usando a API
