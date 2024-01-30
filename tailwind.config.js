@@ -4,15 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        branco: "#FFFFFF",
-        amarelo: "#FEC530",
-        azul: "#3498db",
-        verde: "#2ecc71",
-        verdeEscura: "#004000",
-        cinza: "#222222",
-        cinza100: "#95A5A6",
-        cinza200: "#222121",
-        preto: "#000000",
+        white: "#FFFFFF",
+        blue: "#3498db",
+        gray: "#6b7280 ",
+        gray100: "#95A5A6",
+        black: "#000000",
       },
       fontSize: {
         sm: ".875rem",
@@ -30,23 +26,9 @@ module.exports = {
         montserrat: ["Montserrat", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
       },
-      keyframes: {
-        piscar: {
-          from: {
-            opacity: 1,
-            boxShadow: "0 0 10px 5px #FFFF68",
-          },
-          to: {
-            opacity: 0.5,
-            boxShadow: "none",
-          },
-        },
-      },
+      
       screens: {
         mediumScreen: "1024px",
-      },
-      animation: {
-        piscar: "piscar 1s infinite alternate",
       },
     },
     plugins: [],

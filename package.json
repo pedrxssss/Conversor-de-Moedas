@@ -9,7 +9,7 @@
     "build-preview": "vite build --watch",
     "preview": "vite preview",
     "lint": "eslint app.js",
-    "tailwind-dev": "tailwindcss -i ./src/input.css -o ./dist/style.css --watch"
+    "tailwind-dev": "tailwindcss -i ./src/input.css -o ./src/style.css --watch"
   },
   "devDependencies": {
     "vite": "^5.0.8",

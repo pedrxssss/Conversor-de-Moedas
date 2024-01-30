@@ -4,209 +4,230 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/style.css" />
-    <link rel="stylesheet" href="src/style2.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-Zc8+Qi+/x5+UZTDOxMnmm2XCGSTsF8IuHD6cOWBr4WCOaMTC1o28QeXk2RcVK5bWrQg7+dTu4zJu+BOeHHr2RQ=="
+      crossorigin="anonymous"
+    />
+
     <title>Conversor de Moedas</title>
   </head>
 
-  <body class="custom-background">
+  <body class="bg-gradient-to-r from-white via-stone-400 to-white">
+    <!-- Header -->
+    <header class="bg-black flex justify-around pl-4 py-6 items-center">
+      <span class="hidden md:block"
+        ><a
+          href="index.html"
+          class="text-gray text-md hover:text-white duration-200"
+          >Excoinchange</a
+        ></span
+      >
+      <nav>
+        <ul class="text-white flex gap-6 md:text-center">
+          <li>
+            <a
+              href="https://github.com/pedrxssss"
+              target="_blank"
+              class="hover:text-gray duration-200"
+              >GitHub</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/pedro-de-sousa-santos0711/"
+              target="_blank"
+              class="hover:text-gray duration-200"
+              >LinkedIn</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
     <!-- Tela -->
-    <main class="tela-principal flex justify-center h-screen items-center">
+    <main class="tela-principal flex flex-col gap-16 pt-8 items-center">
+      <!-- Titulo -->
+      <h1 class="titulo font-lato text-black uppercase font-semibold text-lg text-center">
+        Conversor de Moedas
+      </h1>
+
       <!-- Conteudo -->
       <section
-        class="conteudo py-8 flex flex-col items-center gap-4 backdrop-blur rounded w-1/3 max-mediumScreen:backdrop-blur-0"
+        class="conteudo w-[250px] h-[350px] text-center bg-black rounded-lg py-6 px-4 md:grid md:grid-rows-1 md:justify-items-center md:gap-4 md:w-[600px] md:h-[200px] grid "
       >
-        <!-- Titulo -->
-        <h1
-          class="titulo font-roboto text-gray-50 uppercase font-semibold text-lg text-center"
-        >
-          Conversor de Moedas
-        </h1>
-
         <!-- Valor a ser convertido -->
-        <div
-          class="div-valor-real flex justify-center items-center gap-4 flex-col"
-        >
-          <span for="valorReal" class="text-verde text-md font-medium">R$</span>
-          <input
-            type="number"
-            name="valorReal"
-            id="valorReal"
-            class="input border-1 focus:outline-none focus:ring-2 focus:border focus:ring-verde focus:border-verdeEscura hover:ring-2 hover:border hover:border-verdeEscura hover:ring-verde duration-200 rounded text-center text-black font-bold w-40"
-            min="0.0"
-            max="999999999.99"
-            step="0.1"
-            value=""
-            tabindex="1"
-            autofocus
-            required
-          />
-        </div>
-
-        <!-- Conversão internacional -->
-        <div
-          class="div-valor-internacional flex items-center justify-center gap-4 flex-col"
-        >
-          <!-- Dropdown Button -->
-          <div class="relative inline-block text-left">
-            <button
-              class="btn-moedas uppercase text-verde text-md font-medium rounded-sm cursor-pointer duration-200"
-              type="button"
+        <div class="md:grid md:grid-cols-2 md:gap-4 md:grid-rows-1 grid grid-rows-2 gap-4">
+          <div class="div-valor-real md:flex md:flex-row md:gap-4 md:items-center md:justify-end flex gap-2 flex-col">
+            <span for="valorReal" class="text-white text-md font-medium"
+              >R$</span
             >
-              Moedas
-            </button>
-
-            <!-- All dropdown content -->
-            <ul
-              class="lista text-sm font-semibold p-1 rounded min-w-max-content mt-1 w-32 shadow-xl absolute hidden text-center bg-gray-500"
-            >
-              <!-- Dolar -->
-              <li class="lista-item">
-                <input
-                  class="input-moedas hidden"
-                  type="radio"
-                  value="Dólar"
-                  id="dolar"
-                  tabindex="2"
-                  checked=""
-                  name="moedaEstrangeira"
-                />
-                <label
-                  class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
-                  for="dolar"
-                  >$ Dólar
-                </label>
-              </li>
-
-              <!-- Euro -->
-              <li class="lista-item">
-                <input
-                  class="input-moedas hidden"
-                  type="radio"
-                  value="Euro"
-                  id="euro"
-                  tabindex="3"
-                  name="moedaEstrangeira"
-                />
-                <label
-                  class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
-                  for="euro"
-                  >€ Euro
-                </label>
-              </li>
-
-              <!-- Líbra -->
-              <li class="lista-item">
-                <input
-                  class="input-moedas hidden"
-                  type="radio"
-                  value="Líbra"
-                  id="libra"
-                  tabindex="4"
-                  name="moedaEstrangeira"
-                />
-                <label
-                  class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
-                  for="libra"
-                  >£ Líbra
-                </label>
-              </li>
-
-              <!-- Iene -->
-              <li class="lista-item">
-                <input
-                  class="input-moedas hidden"
-                  type="radio"
-                  value="Iene"
-                  id="iene"
-                  tabindex="5"
-                  name="moedaEstrangeira"
-                />
-                <label
-                  class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
-                  for="iene"
-                  >¥ Iene
-                </label>
-              </li>
-
-              <!-- Yuan -->
-              <li class="lista-item">
-                <input
-                  class="input-moedas hidden"
-                  type="radio"
-                  value="Yuan"
-                  id="yuan"
-                  tabindex="6"
-                  name="moedaEstrangeira"
-                />
-                <label
-                  class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
-                  for="yuan"
-                  >¥ Yuan
-                </label>
-              </li>
-
-              <!-- Bitcoin -->
-              <li class="lista-item">
-                <input
-                  class="input-moedas hidden"
-                  type="radio"
-                  value="Bitcoin"
-                  id="bitcoin"
-                  tabindex="7"
-                  name="moedaEstrangeira"
-                />
-                <label
-                  class="hover:text-branco hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
-                  for="bitcoin"
-                  >(₿) BitCoins
-                </label>
-              </li>
-            </ul>
+            <input
+              type="number"
+              name="valorReal"
+              id="valorReal"
+              class="input border border-gray focus:outline-none focus:ring-2 focus:border focus:ring-gray100 focus:border-gray100 hover:ring-2 hover:border hover:border-gray hover:ring-gray duration-200 rounded text-center text-black font-bold w-40 my-0 m-auto md:m-0"
+              min="0.0"
+              max="999999999.99"
+              step="0.1"
+              value=""
+              tabindex="1"
+              autofocus
+              required
+            />
           </div>
-
-          <!-- Receive value -->
-          <input
-            type="text"
-            min="0"
-            max="999999999.99"
-            step="0.1"
-            class="input-valor-convertido border-1 focus:outline-none focus:ring-2 focus:border focus:ring-verde focus:border-verdeEscura hover:ring-2 hover:border hover:border-verdeEscura hover:ring-verde duration-200 rounded text-center text-black font-bold w-40"
-            aria-label="Text input with dropdown button"
-          />
+          <!-- Conversão internacional -->
+          <div
+            class="div-valor-internacional md:flex md:flex-row-reverse md:gap-2 md:items-center flex flex-col gap-4 items-center"
+          >
+            <!-- Dropdown Button -->
+            <div class="relative inline-block text-left">
+              <button
+                class="btn-moedas uppercase text-white text-base font-medium cursor-pointer duration-200 flex items-center gap-2 border border:bg-white rounded-lg py-0 px-4 hover:bg-white hover:text-black"
+                type="button"
+              >
+                Moedas
+                <img
+                  src="images/sinal-de-seta-para-baixo-para-navegar.png"
+                  alt="Seta para baixo"
+                  class="w-4 bg-white rounded-lg"
+                />
+              </button>
+              <!-- All dropdown content -->
+              <ul
+                class="lista text-sm font-semibold p-1 rounded min-w-max-content mt-1 w-32 shadow-xl absolute hidden text-center bg-gray"
+              >
+                <!-- Dolar -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Dólar"
+                    id="dolar"
+                    tabindex="2"
+                    checked=""
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="dolar"
+                    >$ Dólar
+                  </label>
+                </li>
+                <!-- Euro -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Euro"
+                    id="euro"
+                    tabindex="3"
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="euro"
+                    >€ Euro
+                  </label>
+                </li>
+                <!-- Líbra -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Líbra"
+                    id="libra"
+                    tabindex="4"
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="libra"
+                    >£ Líbra
+                  </label>
+                </li>
+                <!-- Iene -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Iene"
+                    id="iene"
+                    tabindex="5"
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="iene"
+                    >¥ Iene
+                  </label>
+                </li>
+                <!-- Yuan -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Yuan"
+                    id="yuan"
+                    tabindex="6"
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="yuan"
+                    >¥ Yuan
+                  </label>
+                </li>
+                <!-- Bitcoin -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Bitcoin"
+                    id="bitcoin"
+                    tabindex="7"
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="bitcoin"
+                    >(₿) BitCoins
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <!-- Receive value -->
+            <input
+              type="text"
+              min="0"
+              max="999999999.99"
+              step="0.1"
+              class="input-valor-convertido border border-gray focus:outline-none focus:ring-2 focus:border focus:ring-gray100 focus:border-gray100 hover:ring-2 hover:border hover:border-gray hover:ring-gray duration-200 rounded text-center text-black font-bold w-40 my-0 m-auto md:m-0"
+              aria-label="Text input with dropdown button"
+            />
+          </div>
         </div>
 
-        <!-- Botoes -->
-        <div class="div-botao-limpar">
+        <section class="div-botao-limpar">
           <button
             type="button"
-            class="btn-limpar text-branco bg-verdeEscura hover:bg-verde hover:text-cinza200 hover:font-bold duration-200 font-medium rounded text-sm uppercase px-5 py-2 text-center me-2 mb-2"
+            class="btn-limpar text-white bg-# hover:bg-# hover:text-white hover:font-bold duration-200 font-medium rounded text-sm uppercase flex items-center text-center m-auto pt-4 gap-4"
             type="reset"
             tabindex="7"
           >
             Limpar
           </button>
-        </div>
-
-        <!-- Imagens -->
-        <div class="div-imagens flex items-center justify-center gap-4 -z-10">
-          <img
-            src="images/moedas/real.png"
-            alt="Imagem da moeda no valor Real"
-            class="imagem-um w-16 animate-piscar rounded-full overflow-hidden"
-          />
-          <img
-            src="images/moedas/dolar.png"
-            alt="Imagem da moeda no valor Dólar"
-            class="imagem-dois w-16 animate-piscar rounded-full overflow-hidden"
-          />
-        </div>
+        </section>
       </section>
+
+      <!-- Botoes -->
     </main>
 
     <script src="app.js" type="module"></script>

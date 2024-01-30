@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-Zc8+Qi+/x5+UZTDOxMnmm2XCGSTsF8IuHD6cOWBr4WCOaMTC1o28QeXk2RcVK5bWrQg7+dTu4zJu+BOeHHr2RQ=="
+      crossorigin="anonymous"
+    />
+
+    <title>Conversor de Moedas</title>
+    <script type="module" crossorigin src="/assets/index-Lcq5CdpQ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Nj55s4ij.css">
+  </head>
+
+  <body class="bg-gradient-to-r from-white via-stone-400 to-white">
+    <!-- Header -->
+    <header class="bg-black flex justify-around pl-4 py-6 items-center">
+      <span class="hidden md:block"
+        ><a
+          href="index.html"
+          class="text-gray text-md hover:text-white duration-200"
+          >Excoinchange</a
+        ></span
+      >
+      <nav>
+        <ul class="text-white flex gap-6 md:text-center">
+          <li>
+            <a
+              href="https://github.com/pedrxssss"
+              target="_blank"
+              class="hover:text-gray duration-200"
+              >GitHub</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/pedro-de-sousa-santos0711/"
+              target="_blank"
+              class="hover:text-gray duration-200"
+              >LinkedIn</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Tela -->
+    <main class="tela-principal flex flex-col gap-16 pt-8 items-center">
+      <!-- Titulo -->
+      <h1 class="titulo font-lato text-black uppercase font-semibold text-lg text-center">
+        Conversor de Moedas
+      </h1>
+
+      <!-- Conteudo -->
+      <section
+        class="conteudo w-[250px] h-[350px] text-center bg-black rounded-lg py-6 px-4 md:grid md:grid-rows-1 md:justify-items-center md:gap-4 md:w-[600px] md:h-[200px] grid "
+      >
+        <!-- Valor a ser convertido -->
+        <div class="md:grid md:grid-cols-2 md:gap-4 md:grid-rows-1 grid grid-rows-2 gap-4">
+          <div class="div-valor-real md:flex md:flex-row md:gap-4 md:items-center md:justify-end flex gap-2 flex-col">
+            <span for="valorReal" class="text-white text-md font-medium"
+              >R$</span
+            >
+            <input
+              type="number"
+              name="valorReal"
+              id="valorReal"
+              class="input border border-gray focus:outline-none focus:ring-2 focus:border focus:ring-gray100 focus:border-gray100 hover:ring-2 hover:border hover:border-gray hover:ring-gray duration-200 rounded text-center text-black font-bold w-40 my-0 m-auto md:m-0"
+              min="0.0"
+              max="999999999.99"
+              step="0.1"
+              value=""
+              tabindex="1"
+              autofocus
+              required
+            />
+          </div>
+          <!-- Conversão internacional -->
+          <div
+            class="div-valor-internacional md:flex md:flex-row-reverse md:gap-2 md:items-center flex flex-col gap-4 items-center"
+          >
+            <!-- Dropdown Button -->
+            <div class="relative inline-block text-left">
+              <button
+                class="btn-moedas uppercase text-white text-base font-medium cursor-pointer duration-200 flex items-center gap-2 border border:bg-white rounded-lg py-0 px-4 hover:bg-white hover:text-black"
+                type="button"
+              >
+                Moedas
+                <img
+                  src="data:image/png;base64,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"
+                  alt="Seta para baixo"
+                  class="w-4 bg-white rounded-lg"
+                />
+              </button>
+              <!-- All dropdown content -->
+              <ul
+                class="lista text-sm font-semibold p-1 rounded min-w-max-content mt-1 w-32 shadow-xl absolute hidden text-center bg-gray"
+              >
+                <!-- Dolar -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Dólar"
+                    id="dolar"
+                    tabindex="2"
+                    checked=""
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="dolar"
+                    >$ Dólar
+                  </label>
+                </li>
+                <!-- Euro -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Euro"
+                    id="euro"
+                    tabindex="3"
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="euro"
+                    >€ Euro
+                  </label>
+                </li>
+                <!-- Líbra -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Líbra"
+                    id="libra"
+                    tabindex="4"
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="libra"
+                    >£ Líbra
+                  </label>
+                </li>
+                <!-- Iene -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Iene"
+                    id="iene"
+                    tabindex="5"
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="iene"
+                    >¥ Iene
+                  </label>
+                </li>
+                <!-- Yuan -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Yuan"
+                    id="yuan"
+                    tabindex="6"
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="yuan"
+                    >¥ Yuan
+                  </label>
+                </li>
+                <!-- Bitcoin -->
+                <li class="lista-item">
+                  <input
+                    class="input-moedas hidden"
+                    type="radio"
+                    value="Bitcoin"
+                    id="bitcoin"
+                    tabindex="7"
+                    name="moedaEstrangeira"
+                  />
+                  <label
+                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    for="bitcoin"
+                    >(₿) BitCoins
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <!-- Receive value -->
+            <input
+              type="text"
+              min="0"
+              max="999999999.99"
+              step="0.1"
+              class="input-valor-convertido border border-gray focus:outline-none focus:ring-2 focus:border focus:ring-gray100 focus:border-gray100 hover:ring-2 hover:border hover:border-gray hover:ring-gray duration-200 rounded text-center text-black font-bold w-40 my-0 m-auto md:m-0"
+              aria-label="Text input with dropdown button"
+            />
+          </div>
+        </div>
+
+        <section class="div-botao-limpar">
+          <button
+            type="button"
+            class="btn-limpar text-white bg-# hover:bg-# hover:text-white hover:font-bold duration-200 font-medium rounded text-sm uppercase flex items-center text-center m-auto pt-4 gap-4"
+            type="reset"
+            tabindex="7"
+          >
+            Limpar
+          </button>
+        </section>
+      </section>
+
+      <!-- Botoes -->
+    </main>
+
+  </body>
+</html>
