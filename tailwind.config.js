@@ -5,10 +5,13 @@ module.exports = {
     extend: {
       colors: {
         white: "#FFFFFF",
-        blue: "#3498db",
+        garnet: "#6A3937",
+        cream: "#F3FFC6",
         gray: "#6b7280 ",
-        gray100: "#95A5A6",
+        dimGray: "#706563",
         black: "#000000",
+        lightRichBlack: "#040F16",
+        richBlack: "#051014",
       },
       fontSize: {
         sm: ".875rem",
@@ -25,10 +28,6 @@ module.exports = {
         lato: ["Lato", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
-      },
-      
-      screens: {
-        mediumScreen: "1024px",
       },
     },
     plugins: [],

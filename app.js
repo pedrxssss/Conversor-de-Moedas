@@ -53,7 +53,6 @@ async function digiting() {
     for (let i = 0; i < moedaSelecionada.length; i++) {
       if (moedaSelecionada[i].checked) {
         moedaEstrageira = moedaSelecionada[i].value;
-        console.log(moedaEstrageira);
       }
     }
 
@@ -67,7 +66,7 @@ async function digiting() {
             currency: "USD",
           })
         );
-        break;
+        break
 
       case "Euro":
         moedaConvertida = real * realEuro;
