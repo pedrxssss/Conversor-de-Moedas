@@ -1,6 +1,6 @@
 /* Javascript Conversor de moedas */
 //import
-import axios from "axios"
+import axios from "axios";
 
 //Moedas
 let valorDigitado = document.querySelector(".input");
@@ -9,11 +9,10 @@ let valorConvertido = document.querySelector(".input-valor-convertido");
 
 //Botoes
 let btnMoedas = document.querySelector(".btn-moedas");
-let btnMoedasText = btnMoedas.innerHTML
+let btnMoedasText = btnMoedas.innerHTML;
 const btnLimpar = document.querySelector(".btn-limpar");
 
 //Dropdown Lista
-let open = false;
 let menu = document.querySelector(".menu");
 /* Use const btnMoedas for dropdown */
 
@@ -22,7 +21,7 @@ let moedaEstrageira = "";
 let moedaConvertida = "";
 
 function btnMoedasRestore() {
-  btnMoedas.innerHTML = btnMoedasText
+  btnMoedas.innerHTML = btnMoedasText;
 }
 //Conversão do valor de real para o escolhido usando a API
 btnLimpar.addEventListener("click", function () {
@@ -33,7 +32,7 @@ btnLimpar.addEventListener("click", function () {
     element.checked = false;
   });
 
-  btnMoedasRestore()
+  btnMoedasRestore();
 });
 
 //API
