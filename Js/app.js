@@ -1,6 +1,6 @@
 /* Javascript Conversor de moedas */
 //import
-import axios from "axios";
+import axios from "axios"
 
 //Moedas
 let valorDigitado = document.querySelector(".input");
@@ -8,26 +8,32 @@ let moedaSelecionada = document.getElementsByName("moedaEstrangeira");
 let valorConvertido = document.querySelector(".input-valor-convertido");
 
 //Botoes
-const btnMoedas = document.querySelector(".btn-moedas");
+let btnMoedas = document.querySelector(".btn-moedas");
+let btnMoedasText = btnMoedas.innerHTML
 const btnLimpar = document.querySelector(".btn-limpar");
 
 //Dropdown Lista
-let lista = document.querySelector(".lista");
+let open = false;
+let menu = document.querySelector(".menu");
+/* Use const btnMoedas for dropdown */
 
 //Selecao de moedas
 let moedaEstrageira = "";
 let moedaConvertida = "";
 
+function btnMoedasRestore() {
+  btnMoedas.innerHTML = btnMoedasText
+}
 //Conversão do valor de real para o escolhido usando a API
 btnLimpar.addEventListener("click", function () {
   valorDigitado.focus();
   valorDigitado.value = "";
   valorConvertido.value = "";
-  moedaSelecionada[0].checked = true;
-  moedaSelecionada[1].checked = false;
-  moedaSelecionada[2].checked = false;
-  moedaSelecionada[3].checked = false;
-  moedaSelecionada[4].checked = false;
+  moedaSelecionada.forEach((element) => {
+    element.checked = false;
+  });
+
+  btnMoedasRestore()
 });
 
 //API
@@ -47,7 +53,7 @@ async function digiting() {
     let realIene = parseFloat(moedas.BRLJPY["bid"]);
     let realYuan = parseFloat(moedas.BRLCNY["bid"]);
     let realBtc = parseFloat(moedas.BTCBRL["bid"]);
-    
+
     let real = parseFloat(valorDigitado.value);
 
     for (let i = 0; i < moedaSelecionada.length; i++) {
@@ -66,7 +72,7 @@ async function digiting() {
             currency: "USD",
           })
         );
-        break
+        break;
 
       case "Euro":
         moedaConvertida = real * realEuro;
@@ -119,14 +125,6 @@ async function digiting() {
   }
 }
 
-//event listeners
-btnMoedas.addEventListener("click", dropdown);
-moedaSelecionada.forEach((element) => {
-  element.addEventListener("click", () => {
-    changeName(), dropdown();
-  });
-});
-
 /* Trocar nome */
 function changeName() {
   for (let i = 0; i < moedaSelecionada.length; i++) {
@@ -136,10 +134,28 @@ function changeName() {
   }
 }
 
-/* Dropdown */
-function dropdown() {
-  lista.classList.toggle("hidden");
-}
+/* Dropdown Menu */
+const dropDown = () => {
+  const toggleMenu = () => {
+    menu.classList.toggle("hidden");
+  };
+
+  const outsideClick = (e) => {
+    if (!menu.contains(e.target) && e.target !== btnMoedas) {
+      menu.classList.add("hidden");
+    }
+  };
+
+  window.addEventListener("click", outsideClick);
+  btnMoedas.addEventListener("click", toggleMenu);
+  moedaSelecionada.forEach((element) => {
+    element.addEventListener("click", () => {
+      changeName();
+      toggleMenu();
+    });
+  });
+};
+dropDown();
 
 /* Mensagem de instrucao na tela */
 function mensagemFormatada(moedaConvertida) {

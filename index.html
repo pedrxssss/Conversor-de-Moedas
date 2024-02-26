@@ -28,7 +28,9 @@
       </h1>
 
       <!-- Conteudo -->
-      <section class="conteudo flex flex-col gap-6 sm:flex sm:flex-col sm:gap-6">
+      <section
+        class="conteudo flex flex-col gap-6 sm:flex sm:flex-col sm:gap-6"
+      >
         <!-- Valor a ser convertido -->
         <div class="flex flex-col gap-6">
           <div
@@ -58,7 +60,7 @@
             class="div-valor-internacional flex flex-col gap-4 sm:grid sm:grid-cols-3 sm:gap-4 items-center"
           >
             <!-- Dropdown Button -->
-            <div class="relative inline-block">
+            <div class="relative">
               <button
                 class="btn-moedas uppercase m-auto text-white font-medium cursor-pointer duration-200 p-1 gap-1 flex items-center"
                 type="button"
@@ -68,7 +70,7 @@
               </button>
               <!-- All dropdown content -->
               <ul
-                class="lista text-sm font-semibold p-1 rounded min-w-max-content mt-1 w-32 shadow-xl absolute hidden text-center bg-gray"
+                class="menu text-sm font-semibold p-1 rounded-lg mt-1 w-40 absolute hidden text-center bg-lightRichBlack text-white"
               >
                 <!-- Dolar -->
                 <li class="lista-item">
@@ -82,7 +84,7 @@
                     name="moedaEstrangeira"
                   />
                   <label
-                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    class="hover:text-gray hover:bg-richBlack uppercase p-1 rounded duration-200 cursor-pointer block"
                     for="dolar"
                     >$ Dólar
                   </label>
@@ -98,7 +100,7 @@
                     name="moedaEstrangeira"
                   />
                   <label
-                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    class="hover:text-gray hover:bg-richBlack uppercase p-1 rounded duration-200 cursor-pointer block"
                     for="euro"
                     >€ Euro
                   </label>
@@ -114,7 +116,7 @@
                     name="moedaEstrangeira"
                   />
                   <label
-                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    class="hover:text-gray hover:bg-richBlack uppercase p-1 rounded duration-200 cursor-pointer block"
                     for="libra"
                     >£ Líbra
                   </label>
@@ -130,7 +132,7 @@
                     name="moedaEstrangeira"
                   />
                   <label
-                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    class="hover:text-gray hover:bg-richBlack uppercase p-1 rounded duration-200 cursor-pointer block"
                     for="iene"
                     >¥ Iene
                   </label>
@@ -146,7 +148,7 @@
                     name="moedaEstrangeira"
                   />
                   <label
-                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    class="hover:text-gray hover:bg-richBlack uppercase p-1 rounded duration-200 cursor-pointer block"
                     for="yuan"
                     >¥ Yuan
                   </label>
@@ -162,7 +164,7 @@
                     name="moedaEstrangeira"
                   />
                   <label
-                    class="hover:text-white hover:bg-cinza200 uppercase p-1 rounded duration-200 cursor-pointer block"
+                    class="hover:text-gray hover:bg-richBlack uppercase p-1 rounded duration-200 cursor-pointer block"
                     for="bitcoin"
                     >(₿) BitCoins
                   </label>
@@ -196,6 +198,6 @@
       <!-- Botoes -->
     </main>
 
-    <script src="app.js" type="module"></script>
+    <script src="Js/app.js" type="module"></script>
   </body>
 </html>
