@@ -65,57 +65,22 @@ async function digiting() {
     switch (moedaEstrageira) {
       case "Dólar":
         moedaConvertida = real * realDolar;
-        mensagemFormatada(
-          moedaConvertida.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD",
-          })
-        );
+        mensagemFormatada(moedaConvertida);
         break;
 
       case "Euro":
         moedaConvertida = real * realEuro;
-        mensagemFormatada(
-          moedaConvertida.toLocaleString("de-DE", {
-            style: "currency",
-            currency: "EUR",
-          })
-        );
+        mensagemFormatada(moedaConvertida);
         break;
 
       case "Líbra":
         moedaConvertida = real * realLibra;
-        mensagemFormatada(
-          moedaConvertida.toLocaleString("en-GB", {
-            style: "currency",
-            currency: "GBP",
-          })
-        );
+        mensagemFormatada(moedaConvertida);
         break;
 
       case "Iene":
         moedaConvertida = real * realIene;
-        mensagemFormatada(
-          moedaConvertida.toLocaleString("ja-JP", {
-            style: "currency",
-            currency: "JPY",
-          })
-        );
-        break;
-
-      case "Yuan":
-        moedaConvertida = real * realYuan;
-        mensagemFormatada(
-          moedaConvertida.toLocaleString("zh-CN", {
-            style: "currency",
-            currency: "CNY",
-          })
-        );
-        break;
-
-      case "Bitcoin":
-        moedaConvertida = real / realBtc;
-        mensagemFormatada(parseFloat(moedaConvertida).toFixed(5));
+        mensagemFormatada(moedaConvertida);
         break;
     }
     isNaN(moedaConvertida) ? (moedaConvertida = 0) : "";
@@ -158,7 +123,9 @@ dropDown();
 
 /* Mensagem de instrucao na tela */
 function mensagemFormatada(moedaConvertida) {
-  valorConvertido.value = `${moedaConvertida}`;
+  const valorFormatado = parseFloat(moedaConvertida).toFixed(2);
+
+  valorConvertido.value = valorFormatado;
 
   if (valorDigitado.value == "") {
     valorConvertido.value = "";
