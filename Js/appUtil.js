@@ -60,8 +60,9 @@ async function newDigiting() {
 /* Mensagem de instrucao na tela */
 function newMensagemFormatada(moedaConvertida) {
   const valorFormatado = parseFloat(moedaConvertida).toFixed(2);
+  const valorFormatadoComVirgula = valorFormatado.replace(".", ",");
 
-  valorConvertido.value = valorFormatado;
+  valorConvertido.value = valorFormatadoComVirgula;
 
   if (valorDigitado.value == "") {
     valorConvertido.value = "";
