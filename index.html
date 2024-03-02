@@ -17,12 +17,12 @@
     <title>Conversor de Moedas</title>
   </head>
 
-  <body class="bg-gradient-to-r from-black via-black to-richBlack">
+  <body class="bg-gradient-to-r from-black via-lightRichBlack to-richBlack">
     <!-- Tela -->
     <main class="tela-principal flex flex-col gap-16 mt-32 mb-16 items-center">
       <!-- Titulo -->
       <h1
-        class="titulo font-montserrat text-wrap tracking-wider text-white uppercase font-semibold text-lg text-center"
+        class="titulo font-montserrat text-white uppercase font-semibold text-lg text-wrap tracking-wider text-center"
       >
         Conversor de Moedas
       </h1>
@@ -38,14 +38,14 @@
           >
             <span
               for="valorReal"
-              class="text-white text-md text-center font-medium sm:col-span-1"
+              class="text-white font-medium text-md text-center sm:col-span-1"
               >R$</span
             >
             <input
               type="text"
               name="valorReal"
               id="valorReal"
-              class="input sm:col-span-2 border border-gray focus:outline-none focus:ring-2 focus:border focus:ring-gray100 focus:border-gray100 hover:ring-2 hover:border hover:border-gray hover:ring-gray duration-200 rounded text-center text-black font-bold w-[200px] h-[25px]"
+              class="input text-center text-black font-bold w-[200px] h-[25px] border rounded border-gray sm:col-span-2 focus:outline-none focus:ring-2 focus:border focus:ring-gray100 focus:border-gray100 hover:ring-2 hover:border hover:border-gray hover:ring-gray duration-200"
               min="0.0"
               max="999999999.99"
               step="0.1"
@@ -57,12 +57,12 @@
           </div>
           <!-- Conversão internacional -->
           <div
-            class="div-valor-internacional flex flex-col gap-4 sm:grid sm:grid-cols-3 sm:gap-4 items-center"
+            class="div-valor-internacional flex flex-col items-center gap-4 sm:grid sm:grid-cols-3 sm:gap-4"
           >
             <!-- Dropdown Button -->
             <div class="relative">
               <button
-                class="btn-moedas uppercase m-auto text-white font-medium cursor-pointer duration-200 p-1 gap-1 flex items-center"
+                class="btn-moedas uppercase text-white font-medium cursor-pointer duration-200 p-1 gap-1 flex items-center"
                 type="button"
               >
                 Moedas
@@ -70,7 +70,7 @@
               </button>
               <!-- All dropdown content -->
               <ul
-                class="menu text-sm font-semibold p-1 rounded-lg mt-1 w-40 absolute hidden text-center bg-lightRichBlack text-white"
+                class="menu text-sm font-semibold p-1 mt-1 w-40 text-center rounded-lg absolute hidden bg-lightRichBlack text-white"
               >
                 <!-- Dolar -->
                 <li class="lista-item">
@@ -145,7 +145,7 @@
               min="0"
               max="999999999.99"
               step="0.1"
-              class="input-valor-convertido text-center border border-gray focus:outline-none focus:ring-2 focus:border focus:ring-gray100 focus:border-gray100 hover:ring-2 hover:border hover:border-gray hover:ring-gray duration-200 rounded text-black font-bold w-[200px] h-[25px] sm:col-span-2"
+              class="input-valor-convertido text-center rounded text-black font-bold w-[200px] h-[25px] sm:col-span-2 border border-gray focus:outline-none focus:ring-2 focus:border focus:ring-gray100 focus:border-gray100 hover:ring-2 hover:border hover:border-gray hover:ring-gray duration-200"
               aria-label="Text input with dropdown button"
             />
           </div>
